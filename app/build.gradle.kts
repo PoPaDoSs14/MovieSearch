@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id ("kotlin-kapt")
 }
 
 android {
@@ -38,6 +39,8 @@ android {
 dependencies {
 
     implementation(libs.retrofit)
+    implementation ("com.google.dagger:dagger:2.44")
+    kapt ("com.google.dagger:dagger-compiler:2.44")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
