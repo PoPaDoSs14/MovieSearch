@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.moviesearch"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.moviesearch"
@@ -36,6 +36,8 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.retrofit)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
