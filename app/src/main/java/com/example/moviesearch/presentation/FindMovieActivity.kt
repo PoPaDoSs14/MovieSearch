@@ -1,14 +1,10 @@
 package com.example.moviesearch.presentation
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.moviesearch.R
 import com.example.moviesearch.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class FindMovieActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
