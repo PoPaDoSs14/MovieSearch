@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface Api {
 
     @GET("test")
-    fun getMovies(): Flow<List<Movie>>
+    suspend fun getMovies(): Flow<List<Movie>>
 }
