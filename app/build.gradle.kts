@@ -43,6 +43,7 @@ android {
 dependencies {
 
     implementation(libs.retrofit)
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.google.dagger:dagger:2.44")
     kapt ("com.google.dagger:dagger-compiler:2.44")
