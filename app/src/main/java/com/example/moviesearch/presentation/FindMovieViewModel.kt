@@ -6,8 +6,9 @@ import com.example.moviesearch.data.RepositoryImpl
 import com.example.moviesearch.domain.Movie
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FindMovieViewModel(
+class FindMovieViewModel @Inject constructor(
     val repo: RepositoryImpl
 ): ViewModel() {
 
