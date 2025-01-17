@@ -4,9 +4,8 @@ import com.example.moviesearch.presentation.FindMovieActivity
 import com.example.moviesearch.presentation.FindMovieViewModel
 import com.example.moviesearch.presentation.MovieListViewModel
 import dagger.Component
-import dagger.Module
 
-@Component(modules = [DataModule::class, DomainModule::class])
+@Component(modules = [AbstractDataModule::class, DomainModule::class, DataModule::class])
 interface ApplicationComponent {
 
 

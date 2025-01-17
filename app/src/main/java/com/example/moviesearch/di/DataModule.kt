@@ -1,15 +1,14 @@
 package com.example.moviesearch.di
 
-import com.example.moviesearch.data.Api
-import com.example.moviesearch.data.RepositoryImpl
-import com.example.moviesearch.domain.Repository
-import dagger.Binds
+import com.example.moviesearch.data.ApiFactory
 import dagger.Module
 import dagger.Provides
 
 @Module
-abstract class DataModule {
+class DataModule {
 
-    @Binds
-    abstract fun provideRepo(impl: RepositoryImpl): Repository
+    @Provides
+    fun provideApiFactory(): ApiFactory{
+        return ApiFactory()
+    }
 }
