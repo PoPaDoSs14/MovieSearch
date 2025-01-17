@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
-    val api: Api
+    val api: ApiFactory
 ): Repository {
 
-    override suspend fun getMovies(): List<Movie> = api.getMovies()
+    override suspend fun getMovies(): List<Movie> = api.api.getMovies()
 }

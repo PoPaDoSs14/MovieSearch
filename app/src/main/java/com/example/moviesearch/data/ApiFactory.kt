@@ -4,10 +4,11 @@ import com.google.gson.Gson
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
+import javax.inject.Inject
 
-object ApiFactory {
+class ApiFactory @Inject constructor() {
 
-    private const val BASE_URL: String = "test"
+    private val BASE_URL: String = "test"
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())

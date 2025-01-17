@@ -1,5 +1,6 @@
 package com.example.moviesearch.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesearch.data.RepositoryImpl
@@ -19,5 +20,9 @@ class FindMovieViewModel @Inject constructor(
             movies = repo.getMovies().toMutableList()
         }
         return movies.toList()
+    }
+
+    fun test(){
+        Log.d("TEST", this.toString())
     }
 }

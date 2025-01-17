@@ -2,6 +2,7 @@ package com.example.moviesearch.di
 
 import com.example.moviesearch.data.Api
 import com.example.moviesearch.data.RepositoryImpl
+import com.example.moviesearch.domain.Repository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -10,5 +11,5 @@ import dagger.Provides
 abstract class DataModule {
 
     @Binds
-    abstract fun bindApi(api: Api): Api
+    abstract fun provideRepo(impl: RepositoryImpl): Repository
 }
