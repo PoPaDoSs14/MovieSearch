@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class ApiFactory @Inject constructor() {
 
-    private val BASE_URL: String = "test"
+    private val BASE_URL: String = "https://movie-database-alternative.p.rapidapi.com/?s=Avengers%20Endgame&r=json&page=1"
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())

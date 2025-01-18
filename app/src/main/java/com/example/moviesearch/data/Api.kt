@@ -7,6 +7,6 @@ import javax.inject.Inject
 
 interface Api {
 
-    @GET("test")
+    @GET("")
     suspend fun getMovies(): List<Movie>
 }
