@@ -7,7 +7,7 @@ import com.example.moviesearch.App
 import com.example.moviesearch.databinding.ActivityMainBinding
 import javax.inject.Inject
 
-class FindMovieActivity @Inject constructor() : AppCompatActivity() {
+class FindMovieActivity : AppCompatActivity() {
 
     @Inject
     lateinit var viewModel: FindMovieViewModel
