@@ -20,16 +20,22 @@ class FindMovieActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         component.inject(this)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+        initializeBinding()
         viewModel.test()
 
-
         binding.button.setOnClickListener {
-            val intent = Intent(this, MovieListActivity::class.java)
-            startActivity(intent)
+            navigateToMovieList()
         }
 
+    }
+
+    private fun initializeBinding() {
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+    }
+
+    private fun navigateToMovieList() {
+        val intent = Intent(this, MovieListActivity::class.java)
+        startActivity(intent)
     }
 }
