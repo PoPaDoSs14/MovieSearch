@@ -23,10 +23,12 @@ class MovieListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         component.inject(this)
+        initializeBinding()
+        viewModel.test()
+    }
+
+    private fun initializeBinding() {
         binding = ActivityMovieListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        viewModel.test()
-
     }
 }
