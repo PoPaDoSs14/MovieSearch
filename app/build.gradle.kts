@@ -43,6 +43,7 @@ android {
 dependencies {
 
     implementation(libs.retrofit)
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation ("com.google.dagger:hilt-android:2.55")
     annotationProcessor ("com.google.dagger:hilt-compiler:2.55")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
