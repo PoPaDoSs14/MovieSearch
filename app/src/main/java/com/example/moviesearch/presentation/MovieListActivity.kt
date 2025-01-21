@@ -14,6 +14,7 @@ class MovieListActivity : AppCompatActivity() {
 
     @Inject
     lateinit var viewModel: MovieListViewModel
+    private lateinit var adapter: MovieListAdapter
 
     private val component by lazy {
         (application as App).component
