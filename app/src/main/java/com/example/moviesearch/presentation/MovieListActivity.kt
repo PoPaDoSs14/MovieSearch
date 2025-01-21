@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesearch.App
 import com.example.moviesearch.R
 import com.example.moviesearch.databinding.ActivityMovieListBinding
+import com.example.moviesearch.domain.Movie
 import javax.inject.Inject
 
 class MovieListActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class MovieListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         component.inject(this)
         initializeBinding()
+        setupRecyclerView()
         viewModel.test()
     }
 
@@ -38,5 +40,13 @@ class MovieListActivity : AppCompatActivity() {
         adapter = MovieListAdapter()
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun fetchMovieData() {
+
+        val movieData: Movie = viewModel.movie
+
+
+            adapter.submitList(movieData.Search)
     }
 }
