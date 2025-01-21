@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesearch.App
 import com.example.moviesearch.R
 import com.example.moviesearch.databinding.ActivityMovieListBinding
@@ -31,5 +32,11 @@ class MovieListActivity : AppCompatActivity() {
     private fun initializeBinding() {
         binding = ActivityMovieListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    private fun setupRecyclerView() {
+        adapter = MovieListAdapter()
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
     }
 }
