@@ -10,5 +10,5 @@ class RepositoryImpl @Inject constructor(
     val api: ApiFactory
 ): Repository {
 
-    override suspend fun getMovies(): List<Movie> = api.api.getMovies()
+    override suspend fun getMovies(): Movie = api.api.getMovies()
 }

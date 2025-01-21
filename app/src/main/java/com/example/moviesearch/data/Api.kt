@@ -8,5 +8,5 @@ import javax.inject.Inject
 interface Api {
 
     @GET("")
-    suspend fun getMovies(): List<Movie>
+    suspend fun getMovies(): Movie
 }
