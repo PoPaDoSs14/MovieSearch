@@ -14,12 +14,12 @@ class FindMovieViewModel @Inject constructor(
 ): ViewModel() {
 
 
-    fun getMovies(): List<Movie>{
-        var movies = mutableListOf<Movie>()
+    fun getMovies(): Movie {
+        var movies: Movie? = null
         viewModelScope.launch(Dispatchers.IO){
-            movies = repo.getMovies().toMutableList()
+            movies = repo.getMovies()
         }
-        return movies.toList()
+        return movies?: throw RuntimeException("movies == null")
     }
 
     fun test(){
