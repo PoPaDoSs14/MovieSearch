@@ -17,4 +17,8 @@ data class MovieResponse(
     fun isResponseSuccessful(): Boolean {
         return response.equals("True", ignoreCase = true)
     }
+
+    fun getTotalResultsCount(): Int {
+        return totalResults.toIntOrNull() ?: 0
+    }
 }
