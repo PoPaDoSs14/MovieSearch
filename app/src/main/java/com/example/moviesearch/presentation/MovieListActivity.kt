@@ -29,8 +29,9 @@ class MovieListActivity : AppCompatActivity() {
         component.inject(this)
         initializeBinding()
         setupRecyclerView()
-        fetchMovieData()
-        viewModel.test()
+
+        viewModel.getMovies()
+        observeViewModel()
     }
 
     private fun initializeBinding() {
@@ -44,10 +45,9 @@ class MovieListActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
-    @SuppressLint("SuspiciousIndentation")
-    private fun fetchMovieData() {
-
-        val movieData: Movie = viewModel.movie
-        adapter.submitList(movieData.Search)
+    private fun observeViewModel() {
+        viewModel.movie.observe(this) { movie ->
+            adapter.submitList(movie.Search)
+        }
     }
 }
