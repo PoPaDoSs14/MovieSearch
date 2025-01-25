@@ -1,5 +1,6 @@
 package com.example.moviesearch.presentation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,7 @@ class MovieListActivity : AppCompatActivity() {
         component.inject(this)
         initializeBinding()
         setupRecyclerView()
+        fetchMovieData()
         viewModel.test()
     }
 
@@ -42,11 +44,10 @@ class MovieListActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun fetchMovieData() {
 
         val movieData: Movie = viewModel.movie
-
-
-            adapter.submitList(movieData.Search)
+        adapter.submitList(movieData.Search)
     }
 }
