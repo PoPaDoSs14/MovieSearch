@@ -23,7 +23,11 @@ class MovieListViewModel @Inject constructor(
 
     fun getMovies() {
         viewModelScope.launch {
-            _movie.value = repositoryImpl.getMovies()
+            try {
+                _movie.value = repositoryImpl.getMovies()
+            } catch (e: Exception) {
+                Log.e("MovieListViewModel", "Ошибка получения фильмов: ${e.message}")
+            }
         }
     }
 
