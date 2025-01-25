@@ -17,6 +17,10 @@ class MovieListViewModel @Inject constructor(
     private val _movie = MutableLiveData<Movie>()
     val movie: LiveData<Movie> get() = _movie
 
+    init {
+        getMovies()
+    }
+
     fun getMovies() {
         viewModelScope.launch {
             _movie.value = repositoryImpl.getMovies()
