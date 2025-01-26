@@ -31,13 +31,18 @@ class MovieListActivity : AppCompatActivity() {
         initializeBinding()
         setupRecyclerView()
 
+        val movieName = getMovieName()
+
+        viewModel.getMovies(movieName ?: "")
+        observeViewModel()
+    }
+
+    private fun getMovieName(): String? {
         val movieName = intent.getStringExtra("EXTRA_MOVIE_NAME")
         movieName?.let {
             Log.d("MovieListActivity", "Selected movie: $it")
         }
-
-        viewModel.getMovies(movieName ?: "")
-        observeViewModel()
+        return movieName
     }
 
     private fun initializeBinding() {
