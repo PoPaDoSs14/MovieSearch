@@ -19,7 +19,7 @@ class MovieListViewModel @Inject constructor(
     val movie: LiveData<Movie> get() = _movie
 
     init {
-        getMovies("")
+        getMovies(BASE_SEARCH)
     }
 
     fun getMovies(search: String) {
@@ -34,5 +34,9 @@ class MovieListViewModel @Inject constructor(
 
     fun test(){
         Log.d("MovieListViewModel", "MovieListViewModel")
+    }
+
+    companion object{
+        const val BASE_SEARCH = ""
     }
 }
