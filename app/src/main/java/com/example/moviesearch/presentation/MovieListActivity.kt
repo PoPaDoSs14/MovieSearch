@@ -2,6 +2,7 @@ package com.example.moviesearch.presentation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -30,7 +31,12 @@ class MovieListActivity : AppCompatActivity() {
         initializeBinding()
         setupRecyclerView()
 
-        viewModel.getMovies()
+        val movieName = intent.getStringExtra("EXTRA_MOVIE_NAME")
+        movieName?.let {
+            Log.d("MovieListActivity", "Selected movie: $it")
+        }
+
+        viewModel.getMovies(movieName ?: "")
         observeViewModel()
     }
 

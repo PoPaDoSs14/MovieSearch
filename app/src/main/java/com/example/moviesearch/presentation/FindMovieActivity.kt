@@ -35,7 +35,13 @@ class FindMovieActivity : AppCompatActivity() {
     }
 
     private fun navigateToMovieList() {
-        val intent = Intent(this, MovieListActivity::class.java)
+
+        val selectedMovie = binding.editTextText.text.toString()
+
+
+        val intent = Intent(this, MovieListActivity::class.java).apply {
+            putExtra("EXTRA_MOVIE_NAME", selectedMovie)
+        }
         startActivity(intent)
     }
 }
