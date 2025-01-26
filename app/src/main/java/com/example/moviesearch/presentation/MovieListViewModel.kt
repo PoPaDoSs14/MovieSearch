@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesearch.data.RepositoryImpl
 import com.example.moviesearch.domain.Movie
+import com.example.moviesearch.domain.Search
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,13 +19,13 @@ class MovieListViewModel @Inject constructor(
     val movie: LiveData<Movie> get() = _movie
 
     init {
-        getMovies()
+        getMovies("")
     }
 
-    fun getMovies() {
+    fun getMovies(search: String) {
         viewModelScope.launch {
             try {
-                _movie.value = repositoryImpl.getMovies()
+                _movie.value = repositoryImpl.getMovies(search = search)
             } catch (e: Exception) {
                 Log.e("MovieListViewModel", "Ошибка получения фильмов: ${e.message}")
             }
