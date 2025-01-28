@@ -2,6 +2,7 @@ package com.example.moviesearch.presentation
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviesearch.App
 import com.example.moviesearch.databinding.ActivityMainBinding
@@ -15,18 +16,20 @@ class FindMovieActivity : AppCompatActivity() {
     private val component by lazy {
         (application as App).component
     }
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         component.inject(this)
         initializeBinding()
+
         viewModel.test()
+
 
         binding.button.setOnClickListener {
             navigateToMovieList()
         }
-
     }
 
     private fun initializeBinding() {
@@ -35,13 +38,15 @@ class FindMovieActivity : AppCompatActivity() {
     }
 
     private fun navigateToMovieList() {
+        val selectedMovie = binding.editTextText.text.toString().trim()
 
-        val selectedMovie = binding.editTextText.text.toString()
-
-
-        val intent = Intent(this, MovieListActivity::class.java).apply {
-            putExtra("EXTRA_MOVIE_NAME", selectedMovie)
+        if (selectedMovie.isNotEmpty()) {
+            val intent = Intent(this, MovieListActivity::class.java).apply {
+                putExtra("EXTRA_MOVIE_NAME", selectedMovie)
+            }
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, "Введите название фильма", Toast.LENGTH_SHORT).show()
         }
-        startActivity(intent)
     }
 }
