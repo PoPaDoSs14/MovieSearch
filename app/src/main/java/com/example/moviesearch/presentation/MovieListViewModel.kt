@@ -12,11 +12,14 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MovieListViewModel @Inject constructor(
-    val repositoryImpl: RepositoryImpl
+    private val repositoryImpl: RepositoryImpl
 ) : ViewModel() {
 
     private val _movie = MutableLiveData<Movie>()
     val movie: LiveData<Movie> get() = _movie
+
+    private val _errorMessage = MutableLiveData<String>()
+    val errorMessage: LiveData<String> get() = _errorMessage
 
     init {
         getMovies(BASE_SEARCH)
@@ -28,11 +31,12 @@ class MovieListViewModel @Inject constructor(
                 _movie.value = repositoryImpl.getMovies(search = search)
             } catch (e: Exception) {
                 Log.e("MovieListViewModel", "Ошибка получения фильмов: ${e.message}")
+                _errorMessage.value = "Ошибка получения фильмов: ${e.message}"
             }
         }
     }
 
-    companion object{
+    companion object {
         const val BASE_SEARCH = ""
     }
 }
