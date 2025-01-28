@@ -24,8 +24,6 @@ class FindMovieActivity : AppCompatActivity() {
         component.inject(this)
         initializeBinding()
 
-        viewModel.test()
-
 
         binding.button.setOnClickListener {
             navigateToMovieList()

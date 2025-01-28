@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesearch.data.RepositoryImpl
 import com.example.moviesearch.domain.Movie
+import com.example.moviesearch.domain.Search
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,10 +15,10 @@ class FindMovieViewModel @Inject constructor(
 ): ViewModel() {
 
 
-    fun getMovies(): Movie {
+    fun getMovies(search: String): Movie {
         var movies: Movie? = null
         viewModelScope.launch(Dispatchers.IO){
-            movies = repo.getMovies()
+            movies = repo.getMovies(search)
         }
         return movies?: throw RuntimeException("movies == null")
     }
