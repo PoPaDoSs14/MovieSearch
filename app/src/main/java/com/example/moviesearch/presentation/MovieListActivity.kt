@@ -18,31 +18,30 @@ class MovieListActivity : AppCompatActivity() {
 
     @Inject
     lateinit var viewModel: MovieListViewModel
+
     private lateinit var adapter: MovieListAdapter
+    private lateinit var binding: ActivityMovieListBinding
 
     private val component by lazy {
         (application as App).component
     }
-    private lateinit var binding: ActivityMovieListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         component.inject(this)
+
         initializeBinding()
         setupRecyclerView()
 
-        val movieName = getMovieName()
-
-        viewModel.getMovies(movieName ?: "")
+        val movieName = getMovieName() ?: ""
+        viewModel.getMovies(movieName)
         observeViewModel()
     }
 
     private fun getMovieName(): String? {
-        val movieName = intent.getStringExtra("EXTRA_MOVIE_NAME")
-        movieName?.let {
+        return intent.getStringExtra("EXTRA_MOVIE_NAME")?.also {
             Log.d("MovieListActivity", "Selected movie: $it")
         }
-        return movieName
     }
 
     private fun initializeBinding() {
@@ -52,8 +51,10 @@ class MovieListActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         adapter = MovieListAdapter()
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.apply {
+            adapter = this@MovieListActivity.adapter
+            layoutManager = LinearLayoutManager(context)
+        }
     }
 
     private fun observeViewModel() {
