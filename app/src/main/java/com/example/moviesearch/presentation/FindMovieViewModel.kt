@@ -21,8 +21,4 @@ class FindMovieViewModel @Inject constructor(
         }
         return movies?: throw RuntimeException("movies == null")
     }
-
-    fun test(){
-        Log.d("TEST", this.toString())
-    }
 }

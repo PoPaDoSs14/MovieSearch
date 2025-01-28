@@ -32,10 +32,6 @@ class MovieListViewModel @Inject constructor(
         }
     }
 
-    fun test(){
-        Log.d("MovieListViewModel", "MovieListViewModel")
-    }
-
     companion object{
         const val BASE_SEARCH = ""
     }
