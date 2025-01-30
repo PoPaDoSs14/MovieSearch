@@ -4,10 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.moviesearch.databinding.MovieItemBinding
-import com.example.moviesearch.domain.Movie
-import com.example.moviesearch.domain.Search
+import com.example.moviesearch.domain.Doc
 
-class MovieListAdapter : ListAdapter<Search, MovieViewHolder>(MovieDiffCallback()) {
+class MovieListAdapter : ListAdapter<Doc, MovieViewHolder>(MovieDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)

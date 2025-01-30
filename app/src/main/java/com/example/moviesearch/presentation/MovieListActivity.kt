@@ -59,7 +59,7 @@ class MovieListActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         viewModel.movie.observe(this) { movie ->
-            adapter.submitList(movie.Search)
+            adapter.submitList(movie.docs)
         }
     }
 }

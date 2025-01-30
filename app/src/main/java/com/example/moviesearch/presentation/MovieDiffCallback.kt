@@ -1,14 +1,15 @@
 package com.example.moviesearch.presentation
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.moviesearch.domain.Search
+import com.example.moviesearch.domain.Doc
 
-class MovieDiffCallback : DiffUtil.ItemCallback<Search>() {
-    override fun areItemsTheSame(oldItem: Search, newItem: Search): Boolean {
-        return oldItem.imdbID == newItem.imdbID
+
+class MovieDiffCallback : DiffUtil.ItemCallback<Doc>() {
+    override fun areItemsTheSame(oldItem: Doc, newItem: Doc): Boolean {
+        return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Search, newItem: Search): Boolean {
+    override fun areContentsTheSame(oldItem: Doc, newItem: Doc): Boolean {
         return oldItem == newItem
     }
 }

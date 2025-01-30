@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesearch.data.RepositoryImpl
 import com.example.moviesearch.domain.Movie
-import com.example.moviesearch.domain.Search
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
