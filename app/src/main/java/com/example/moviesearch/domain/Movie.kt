@@ -1,7 +1,9 @@
 package com.example.moviesearch.domain
 
 data class Movie(
-    val Response: String,
-    val Search: List<Search>,
-    val totalResults: String
+    val docs: List<Doc>,
+    val limit: Int,
+    val page: Int,
+    val pages: Int,
+    val total: Int
 )
