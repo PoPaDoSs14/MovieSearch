@@ -1,12 +1,12 @@
 package com.example.moviesearch.data
 
-import com.example.moviesearch.domain.Search
+import com.example.moviesearch.domain.Doc
 import com.google.gson.annotations.SerializedName
 
 data class MovieResponse(
 
-    @SerializedName("Search")
-    val searchResults: List<Search>,
+    @SerializedName("docs")
+    val movies: List<Doc>,
 
     @SerializedName("totalResults")
     val totalResults: String,
