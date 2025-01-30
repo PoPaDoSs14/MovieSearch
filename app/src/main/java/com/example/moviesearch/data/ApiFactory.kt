@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class ApiFactory @Inject constructor() {
 
-    private val BASE_URL: String = "https://movie-database-alternative.p.rapidapi.com/"
+    private val BASE_URL: String = "https://api.kinopoisk.dev/"
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
