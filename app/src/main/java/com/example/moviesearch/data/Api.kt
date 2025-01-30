@@ -8,10 +8,9 @@ import retrofit2.http.Query
 import javax.inject.Inject
 
 interface Api {
-    @GET("v1.4/movie")
+    @GET("v1.4/search")
     suspend fun getMovies(
-        @Query("year") year: Int,
-        @Query("genres.name") genre: String,
+        @Query("name") name: String,
         @Header("X-API-KEY") apiKey: String
     ): Movie
 }
