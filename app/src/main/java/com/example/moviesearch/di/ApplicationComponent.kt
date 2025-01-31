@@ -11,11 +11,6 @@ import javax.inject.Singleton
 @Component(modules = [AbstractDataModule::class, DomainModule::class, DataModule::class])
 interface ApplicationComponent {
 
-
-    fun inject(viewModel: MovieListViewModel)
-
-    fun inject(viewModel: FindMovieViewModel)
-
     fun inject(activity: FindMovieActivity)
 
     fun inject(activity: MovieListActivity)
