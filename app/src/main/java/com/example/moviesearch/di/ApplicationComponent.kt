@@ -5,7 +5,9 @@ import com.example.moviesearch.presentation.FindMovieViewModel
 import com.example.moviesearch.presentation.MovieListActivity
 import com.example.moviesearch.presentation.MovieListViewModel
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [AbstractDataModule::class, DomainModule::class, DataModule::class])
 interface ApplicationComponent {
 
