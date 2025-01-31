@@ -6,14 +6,24 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import javax.inject.Inject
 
-class ApiFactory @Inject constructor() {
+class ApiFactory @Inject constructor(
+    private val apiKey: String
+) {
 
-    private val BASE_URL: String = "https://api.kinopoisk.dev/"
+    private val BASE_URL = "https://api.kinopoisk.dev/"
 
-    private val retrofit: Retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BASE_URL)
-        .build()
+    private val retrofit: Retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 
-    val api: Api = retrofit.create(Api::class.java)
+    val api: Api by lazy {
+        retrofit.create(Api::class.java)
+    }
+
+    fun getApiKey(): String {
+        return apiKey
+    }
 }
