@@ -11,17 +11,18 @@ import javax.inject.Singleton
 @Component(modules = [AbstractDataModule::class, DomainModule::class, DataModule::class])
 interface ApplicationComponent {
 
+    // Методы для внедрения зависимостей в Activity
     fun inject(activity: FindMovieActivity)
-
     fun inject(activity: MovieListActivity)
 
+    // Другие инъекции, если необходимы
 
     @Component.Factory
     interface ApplicationComponentFactory {
-
-        fun create(
-
-        ): ApplicationComponent
+        /**
+         * Создает экземпляр ApplicationComponent.
+         * Параметры можно добавить здесь, если требуется передавать зависимости.
+         */
+        fun create(): ApplicationComponent
     }
-
 }
