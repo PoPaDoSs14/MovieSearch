@@ -54,7 +54,7 @@ class MovieListActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         adapter = MovieListAdapter(object : MovieListAdapter.OnItemClickListener {
             override fun onItemClick(movie: Doc) {
-                Toast.makeText(this@MovieListActivity, "Clicked: ${movie.name}", Toast.LENGTH_SHORT).show()
+                TODO()
             }
         })
 
