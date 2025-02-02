@@ -7,4 +7,67 @@
     android:layout_height="match_parent"
     tools:context=".presentation.MovieInfoActivity">
 
+    <!-- Постер фильма -->
+    <ImageView
+        android:id="@+id/moviePoster"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/movieTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Название фильма -->
+    <TextView
+        android:id="@+id/movieTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="Название Фильма"
+        app:layout_constraintTop_toBottomOf="@+id/moviePoster"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Рейтинг фильма -->
+    <TextView
+        android:id="@+id/movieRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        tools:text="Рейтинг: "
+        app:layout_constraintTop_toBottomOf="@+id/movieTitle"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Жанры фильма -->
+    <TextView
+        android:id="@+id/movieGenres"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="16sp"
+        tools:text="жанры фильма:"
+        app:layout_constraintTop_toBottomOf="@+id/movieRating"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Год выпуска фильма -->
+    <TextView
+        android:id="@+id/movieReleaseYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        tools:text="год выпуска"
+        app:layout_constraintTop_toBottomOf="@+id/movieGenres"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
