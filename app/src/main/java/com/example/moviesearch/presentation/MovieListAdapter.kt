@@ -17,4 +17,8 @@ class MovieListAdapter : ListAdapter<Doc, MovieViewHolder>(MovieDiffCallback()) 
         val movie = getItem(position)
         holder.bind(movie)
     }
+
+    interface OnItemClickListener {
+        fun onItemClick(movie: Doc)
+    }
 }
