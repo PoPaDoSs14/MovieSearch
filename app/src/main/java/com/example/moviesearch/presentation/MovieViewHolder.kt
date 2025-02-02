@@ -8,13 +8,17 @@ import com.example.moviesearch.databinding.MovieItemBinding
 import com.example.moviesearch.domain.Doc
 
 class MovieViewHolder(private val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(search: Doc) {
-        binding.titleTextView.text = search.name
-        binding.releaseDateTextView.text = search.poster.url
+    fun bind(movie: Doc, listener: MovieListAdapter.OnItemClickListener) {
+        binding.titleTextView.text = movie.name
+        binding.releaseDateTextView.text = movie.poster.url
 
         Glide.with(binding.posterImageView.context)
-            .load(search.poster.url)
+            .load(movie.poster.url)
             .apply(RequestOptions().transform(RoundedCorners(16)))
             .into(binding.posterImageView)
+
+        itemView.setOnClickListener {
+            listener.onItemClick(movie)
+        }
     }
 }
