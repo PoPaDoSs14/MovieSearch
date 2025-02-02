@@ -3,6 +3,7 @@ package com.example.moviesearch.presentation
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesearch.App
 import com.example.moviesearch.R
 import com.example.moviesearch.databinding.ActivityMovieListBinding
+import com.example.moviesearch.domain.Doc
 import com.example.moviesearch.domain.Movie
 import javax.inject.Inject
 
@@ -50,7 +52,12 @@ class MovieListActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        adapter = MovieListAdapter()
+        adapter = MovieListAdapter(object : MovieListAdapter.OnItemClickListener {
+            override fun onItemClick(movie: Doc) {
+                Toast.makeText(this@MovieListActivity, "Clicked: ${movie.name}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
         binding.recyclerView.apply {
             adapter = this@MovieListActivity.adapter
             layoutManager = LinearLayoutManager(context)
