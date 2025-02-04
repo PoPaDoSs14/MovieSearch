@@ -7,8 +7,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.moviesearch.R
 import com.example.moviesearch.databinding.ActivityMovieInfoBinding
+import javax.inject.Inject
 
 class MovieInfoActivity : AppCompatActivity() {
+
+    @Inject()
+    private lateinit var viewModel: MovieInfoViewModel
 
     private lateinit var binding: ActivityMovieInfoBinding
 
