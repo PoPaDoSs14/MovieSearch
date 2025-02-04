@@ -16,5 +16,7 @@ class MovieInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMovieInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
     }
 }
