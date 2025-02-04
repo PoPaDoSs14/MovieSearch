@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.moviesearch.App
 import com.example.moviesearch.R
 import com.example.moviesearch.databinding.ActivityMovieInfoBinding
 import javax.inject.Inject
@@ -16,8 +17,13 @@ class MovieInfoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMovieInfoBinding
 
+    private val component by lazy {
+        (application as App).component
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        component.inject(this)
         binding = ActivityMovieInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
