@@ -1,6 +1,7 @@
 package com.example.moviesearch.presentation
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -54,7 +55,9 @@ class MovieListActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         adapter = MovieListAdapter(object : MovieListAdapter.OnItemClickListener {
             override fun onItemClick(movie: Doc) {
-                TODO()
+                val intent = Intent(this@MovieListActivity, MovieInfoActivity::class.java)
+
+                startActivity(intent)
             }
         })
 
