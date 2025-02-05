@@ -56,7 +56,7 @@ class MovieListActivity : AppCompatActivity() {
         adapter = MovieListAdapter(object : MovieListAdapter.OnItemClickListener {
             override fun onItemClick(movie: Doc) {
                 val intent = Intent(this@MovieListActivity, MovieInfoActivity::class.java)
-
+                intent.putExtra("EXTRA_MOVIE_NAME", movie.name)
                 startActivity(intent)
             }
         })
