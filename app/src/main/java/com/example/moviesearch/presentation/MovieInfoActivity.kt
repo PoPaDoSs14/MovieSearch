@@ -13,6 +13,8 @@ class MovieInfoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMovieInfoBinding
 
+    lateinit var movieName: String
+
     private val component by lazy {
         (application as App).component
     }
@@ -27,7 +29,7 @@ class MovieInfoActivity : AppCompatActivity() {
     }
 
     private fun getMovieName() {
-        val movieName = intent.getStringExtra("EXTRA_MOVIE_NAME")
+        movieName = intent.getStringExtra("EXTRA_MOVIE_NAME")!!
         if (movieName != null) {
             binding.movieTitle.text = movieName
         } else {
