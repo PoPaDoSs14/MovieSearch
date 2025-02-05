@@ -28,5 +28,12 @@ class MovieInfoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
+        val movieName = intent.getStringExtra("EXTRA_MOVIE_NAME")
+        if (movieName != null) {
+            binding.movieTitle.text = movieName
+        } else {
+            binding.movieTitle.text = "Название фильма не указано"
+        }
     }
 }
