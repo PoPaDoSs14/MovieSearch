@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviesearch.App
 import com.example.moviesearch.databinding.ActivityMovieInfoBinding
+import com.example.moviesearch.domain.Movie
 import javax.inject.Inject
 
 class MovieInfoActivity : AppCompatActivity() {
@@ -25,17 +26,21 @@ class MovieInfoActivity : AppCompatActivity() {
         binding = ActivityMovieInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        getMovieName()
+        val movieName = intent.getStringExtra("EXTRA_MOVIE_NAME")
 
-
+        if (movieName != null) {
+            viewModel.getMovie(movieName) { movie ->
+                showMovieGenres(movie)
+            }
+        }
     }
 
-    private fun getMovieName() {
-        movieName = intent.getStringExtra("EXTRA_MOVIE_NAME")!!
-        if (movieName != null) {
-            binding.movieTitle.text = movieName
+    private fun showMovieGenres(movie: Movie?) {
+        if (movie != null) {
+            val genres = movie.docs.flatMap { it.genres }.joinToString(", ") { it.name }
+            binding.movieGenres.text = genres
         } else {
-            binding.movieTitle.text = "Название фильма не указано"
+            binding.movieGenres.text = "Жанры не найдены"
         }
     }
 }
