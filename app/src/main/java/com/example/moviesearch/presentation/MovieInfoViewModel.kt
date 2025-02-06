@@ -6,6 +6,7 @@ import com.example.moviesearch.data.RepositoryImpl
 import com.example.moviesearch.domain.Movie
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MovieInfoViewModel @Inject constructor(
@@ -13,11 +14,12 @@ class MovieInfoViewModel @Inject constructor(
 ): ViewModel() {
 
 
-    fun getMovie(search: String): Movie {
-        var movie: Movie? = null
-        viewModelScope.launch(Dispatchers.IO){
-            movie = repo.getMovies(search)
+    fun getMovie(search: String, callback: (Movie?) -> Unit) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val movie = repo.getMovies(search)
+            withContext(Dispatchers.Main) {
+                callback(movie)
+            }
         }
-        return movie?: throw RuntimeException("movies == null")
     }
 }

@@ -26,6 +26,8 @@ class MovieInfoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getMovieName()
+
+
     }
 
     private fun getMovieName() {
