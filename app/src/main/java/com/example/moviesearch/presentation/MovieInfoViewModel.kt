@@ -13,11 +13,11 @@ class MovieInfoViewModel @Inject constructor(
 ): ViewModel() {
 
 
-    fun getMovies(search: String): Movie {
-        var movies: Movie? = null
+    fun getMovie(search: String): Movie {
+        var movie: Movie? = null
         viewModelScope.launch(Dispatchers.IO){
-            movies = repo.getMovies(search)
+            movie = repo.getMovies(search)
         }
-        return movies?: throw RuntimeException("movies == null")
+        return movie?: throw RuntimeException("movies == null")
     }
 }
