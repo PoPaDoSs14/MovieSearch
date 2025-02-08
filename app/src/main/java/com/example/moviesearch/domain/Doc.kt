@@ -1,5 +1,9 @@
 package com.example.moviesearch.domain
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Doc(
     val ageRating: Int,
     val alternativeName: String,
@@ -30,4 +34,4 @@ data class Doc(
     val typeNumber: Int,
     val votes: Votes,
     val year: Int
-)
+) : Parcelable
