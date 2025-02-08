@@ -26,13 +26,8 @@ class MovieInfoActivity : AppCompatActivity() {
         binding = ActivityMovieInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val movieName = intent.getStringExtra("EXTRA_MOVIE_NAME")
+        val movie = intent.getStringExtra("EXTRA_MOVIE_NAME")
 
-        if (movieName != null) {
-            viewModel.getMovie(movieName) { movie ->
-                showMovieGenres(movie)
-            }
-        }
     }
 
     private fun showMovieGenres(movie: Movie?) {
