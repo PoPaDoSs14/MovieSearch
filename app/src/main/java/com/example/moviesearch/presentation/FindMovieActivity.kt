@@ -27,7 +27,9 @@ class FindMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         component.inject(this)
         initializeBinding()
-        val intentFilter = IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+        val intentFilter = IntentFilter().apply {
+            addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+        }
         registerReceiver(receiver, intentFilter)
 
 
