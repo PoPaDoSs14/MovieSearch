@@ -17,8 +17,6 @@ interface ApplicationComponent {
     fun inject(activity: MovieListActivity)
     fun inject(activity: MovieInfoActivity)
 
-    // Другие инъекции, если необходимы
-
     @Component.Factory
     interface ApplicationComponentFactory {
         /**

@@ -4,8 +4,9 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
+import javax.inject.Inject
 
-class MyReceiver: BroadcastReceiver() {
+class MyReceiver @Inject constructor(): BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         when(intent?.action){
             Intent.ACTION_AIRPLANE_MODE_CHANGED-> {

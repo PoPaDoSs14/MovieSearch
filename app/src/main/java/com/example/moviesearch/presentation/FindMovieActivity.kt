@@ -13,7 +13,9 @@ class FindMovieActivity : AppCompatActivity() {
 
     @Inject
     lateinit var viewModel: FindMovieViewModel
-    private val receiver = MyReceiver()
+
+    @Inject
+    lateinit var receiver: MyReceiver
 
     private val component by lazy {
         (application as App).component
