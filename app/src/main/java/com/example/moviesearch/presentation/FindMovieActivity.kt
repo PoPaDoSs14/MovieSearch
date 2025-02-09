@@ -27,10 +27,7 @@ class FindMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         component.inject(this)
         initializeBinding()
-        val intentFilter = IntentFilter().apply {
-            addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
-        }
-        registerReceiver(receiver, intentFilter)
+        initializeReceivers()
 
 
         binding.button.setOnClickListener {
@@ -41,6 +38,13 @@ class FindMovieActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(receiver)
+    }
+
+    private fun initializeReceivers() {
+        val intentFilter = IntentFilter().apply {
+            addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+        }
+        registerReceiver(receiver, intentFilter)
     }
 
     private fun initializeBinding() {
