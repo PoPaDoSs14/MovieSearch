@@ -1,6 +1,7 @@
 package com.example.moviesearch.presentation
 
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ class FindMovieActivity : AppCompatActivity() {
 
     @Inject
     lateinit var viewModel: FindMovieViewModel
+    private val receiver = MyReceiver()
 
     private val component by lazy {
         (application as App).component
@@ -23,11 +25,18 @@ class FindMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         component.inject(this)
         initializeBinding()
+        val intentFilter = IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+        registerReceiver(receiver, intentFilter)
 
 
         binding.button.setOnClickListener {
             navigateToMovieList()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(receiver)
     }
 
     private fun initializeBinding() {
