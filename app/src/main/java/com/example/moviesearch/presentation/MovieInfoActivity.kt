@@ -30,4 +30,17 @@ class MovieInfoActivity : AppCompatActivity() {
 
     }
 
+    private fun showMovieDetails(movie: Movie?) {
+        if (movie != null && movie.docs.isNotEmpty()) {
+            val firstDoc = movie.docs.first()
+
+
+            binding.movieTitle.text = firstDoc.name
+            binding.movieReleaseYear.text = firstDoc.releaseYears.toString()
+            binding.movieRating.text = firstDoc.rating.toString()
+
+            val genres = firstDoc.genres.joinToString(", ") { it.name }
+            binding.movieGenres.text = genres
+        }
+    }
 }
