@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviesearch.App
 import com.example.moviesearch.databinding.ActivityMovieInfoBinding
+import com.example.moviesearch.domain.Doc
 import com.example.moviesearch.domain.Movie
 import javax.inject.Inject
 
@@ -26,7 +27,7 @@ class MovieInfoActivity : AppCompatActivity() {
         binding = ActivityMovieInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val movie = intent.getStringExtra("EXTRA_MOVIE_NAME")
+        val doc = intent.getParcelableExtra<Doc>("EXTRA_MOVIE_DOC")
 
     }
 
