@@ -31,16 +31,13 @@ class MovieInfoActivity : AppCompatActivity() {
 
     }
 
-    private fun showMovieDetails(movie: Movie?) {
-        if (movie != null && movie.docs.isNotEmpty()) {
-            val firstDoc = movie.docs.first()
+    private fun showMovieDetails(doc: Doc?) {
+        if (doc != null) {
+            binding.movieTitle.text = doc.name
+            binding.movieReleaseYear.text = doc.releaseYears.toString()
+            binding.movieRating.text = doc.rating.toString()
 
-
-            binding.movieTitle.text = firstDoc.name
-            binding.movieReleaseYear.text = firstDoc.releaseYears.toString()
-            binding.movieRating.text = firstDoc.rating.toString()
-
-            val genres = firstDoc.genres.joinToString(", ") { it.name }
+            val genres = doc.genres.joinToString(", ") { it.name }
             binding.movieGenres.text = genres
         } else {
             binding.movieTitle.text = "Название не найдено"
