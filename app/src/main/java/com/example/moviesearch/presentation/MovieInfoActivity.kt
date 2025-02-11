@@ -30,12 +30,4 @@ class MovieInfoActivity : AppCompatActivity() {
 
     }
 
-    private fun showMovieGenres(movie: Movie?) {
-        if (movie != null) {
-            val genres = movie.docs.flatMap { it.genres }.joinToString(", ") { it.name }
-            binding.movieGenres.text = genres
-        } else {
-            binding.movieGenres.text = "Жанры не найдены"
-        }
-    }
 }
