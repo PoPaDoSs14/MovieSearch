@@ -43,6 +43,7 @@ class FindMovieActivity : AppCompatActivity() {
     private fun initializeReceivers() {
         val intentFilter = IntentFilter().apply {
             addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+            addAction(Intent.ACTION_BATTERY_LOW)
         }
         registerReceiver(receiver, intentFilter)
     }
