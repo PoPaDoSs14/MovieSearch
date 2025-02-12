@@ -15,8 +15,6 @@ class MovieInfoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMovieInfoBinding
 
-    lateinit var movieName: String
-
     private val component by lazy {
         (application as App).component
     }
