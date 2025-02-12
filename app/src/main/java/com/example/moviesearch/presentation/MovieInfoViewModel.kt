@@ -14,12 +14,5 @@ class MovieInfoViewModel @Inject constructor(
 ): ViewModel() {
 
 
-    fun getMovie(search: String, callback: (Movie?) -> Unit) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val movie = repo.getMovies(search)
-            withContext(Dispatchers.Main) {
-                callback(movie)
-            }
-        }
-    }
+
 }
