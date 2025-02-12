@@ -27,7 +27,7 @@ class MovieInfoActivity : AppCompatActivity() {
         binding = ActivityMovieInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val doc = intent.getParcelableExtra<Doc>("EXTRA_MOVIE_DOC")
+        val doc = intent.getParcelableExtra<Doc>(DOC_EXTRA)
         showMovieDetails(doc)
 
     }
@@ -50,6 +50,7 @@ class MovieInfoActivity : AppCompatActivity() {
 
 
     companion object{
+        const val DOC_EXTRA = "EXTRA_MOVIE_DOC"
 
     }
 }
