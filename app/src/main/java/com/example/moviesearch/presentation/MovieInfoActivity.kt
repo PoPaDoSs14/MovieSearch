@@ -47,4 +47,9 @@ class MovieInfoActivity : AppCompatActivity() {
             binding.movieGenres.text = "Жанры не найдены"
         }
     }
+
+
+    companion object{
+
+    }
 }
