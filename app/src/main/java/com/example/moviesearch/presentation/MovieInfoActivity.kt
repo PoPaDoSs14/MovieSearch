@@ -1,5 +1,6 @@
 package com.example.moviesearch.presentation
 
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviesearch.App
@@ -25,7 +26,11 @@ class MovieInfoActivity : AppCompatActivity() {
         binding = ActivityMovieInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val doc = intent.getParcelableExtra<Doc>(DOC_EXTRA, Doc::class.java)
+        val doc: Doc? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra(DOC_EXTRA, Doc::class.java)
+        } else {
+            intent.getParcelableExtra(DOC_EXTRA)
+        }
         showMovieDetails(doc)
 
     }
