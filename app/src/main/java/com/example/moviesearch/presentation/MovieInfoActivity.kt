@@ -25,7 +25,7 @@ class MovieInfoActivity : AppCompatActivity() {
         binding = ActivityMovieInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val doc = intent.getParcelableExtra<Doc>(DOC_EXTRA)
+        val doc = intent.getParcelableExtra<Doc>(DOC_EXTRA, Doc::class.java)
         showMovieDetails(doc)
 
     }
