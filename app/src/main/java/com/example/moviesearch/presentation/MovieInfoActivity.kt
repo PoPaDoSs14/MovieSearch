@@ -39,10 +39,10 @@ class MovieInfoActivity : AppCompatActivity() {
             val genres = doc.genres.joinToString(", ") { it.name }
             binding.movieGenres.text = genres
         } else {
-            binding.movieTitle.text = "Название не найдено"
-            binding.movieReleaseYear.text = "Год не найден"
-            binding.movieRating.text = "Рейтинг не найден"
-            binding.movieGenres.text = "Жанры не найдены"
+            binding.movieTitle.text = MOVIE_TITLE
+            binding.movieReleaseYear.text = MOVIE_RELEASE
+            binding.movieRating.text = MOVIE_RATING
+            binding.movieGenres.text = MOVIE_GENRES
         }
     }
 
