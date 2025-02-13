@@ -50,5 +50,7 @@ class MovieInfoActivity : AppCompatActivity() {
     companion object{
         const val DOC_EXTRA = "EXTRA_MOVIE_DOC"
 
+        const val MOVIE_TITLE = "Название не найдено"
+        const val MOVIE_RELEASE = "Год не найден"
     }
 }
