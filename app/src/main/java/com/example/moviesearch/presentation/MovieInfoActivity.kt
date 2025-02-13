@@ -52,5 +52,7 @@ class MovieInfoActivity : AppCompatActivity() {
 
         const val MOVIE_TITLE = "Название не найдено"
         const val MOVIE_RELEASE = "Год не найден"
+        const val MOVIE_RATING = "Рейтинг не найден"
+        const val MOVIE_GENRES = "Жанры не найдены"
     }
 }
